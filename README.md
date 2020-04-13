@@ -54,6 +54,7 @@ Other available stack variants:
 6. [Going further](#going-further)
    * [Plugins and integrations](#plugins-and-integrations)
    * [Swarm mode](#swarm-mode)
+7. [Pantheon nginx Log Parsing](#pantheon-nginx-log-parsing)
 
 ## Requirements
 
@@ -419,3 +420,8 @@ instead of `elasticsearch`.
 [upgrade]: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html
 
 [swarm-mode]: https://docs.docker.com/engine/swarm/
+
+
+## Pantheon nginx Log Parsing
+
+To parse nginx logs using this utility, download the `nginx-access.log` file(s) from the app container(s) and place them in the `logstash/container-logs` directory. Start the Docker containers like normal. The logs will be parsed and saved using a dynamic index name of `logstash-[yyyy.mm]` where `yyyy` is the four-digit year and `mm` is the two-digit month. 
