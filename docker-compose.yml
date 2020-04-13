@@ -48,6 +48,10 @@ services:
         source: './logstash/container-logs'
         target: /usr/share/logstash/container-logs
         read_only: false
+      - type: bind
+        source: './logstash/logs'
+        target: /usr/share/logstash/logs
+        read_only: false
     ports:
       - "5000:5000/tcp"
       - "5000:5000/udp"
