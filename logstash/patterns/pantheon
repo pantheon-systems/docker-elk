@@ -1,0 +1,1 @@
+PANTHEON %{IP:shieldip} - - \[%{HTTPDATE:time}\] +"%{WORD:method} %{DATA:url} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} %{NUMBER:bytessent} \"%{DATA:referer}\" \"%{DATA:useragent}\" %{NUMBER:elapsed} \"(?<x_forwarded_for>%{IP:clientip}(, .*)?)\"
