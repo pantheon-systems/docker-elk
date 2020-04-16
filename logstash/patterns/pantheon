@@ -1,1 +1,4 @@
-PANTHEON %{IP:shieldip} - - \[%{HTTPDATE:time}\] +"%{WORD:method} %{DATA:url} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} %{NUMBER:bytessent} \"%{DATA:referer}\" \"%{DATA:useragent}\" %{NUMBER:elapsed} \"(?<x_forwarded_for>%{IP:clientip}(, .*)?)\"
+PANTHEON_NGINX_ACCESS %{IP:shieldip} - - \[%{HTTPDATE:time}\] +"%{WORD:method} %{DATA:url} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} %{NUMBER:bytessent} \"%{DATA:referer}\" \"%{DATA:useragent}\" %{NUMBER:elapsed} \"(?<x_forwarded_for>%{IP:clientip}(, .*)?)\"
+PANTHEON_NGINX_ERROR (?<time>%{YEAR}[./]%{MONTHNUM}[./]%{MONTHDAY} %{TIME}) \[%{LOGLEVEL:severity}\] %{POSINT:pid}#%{NUMBER:threadid}\: \*%{NUMBER:connectionid} %{GREEDYDATA:message}, client: %{IP:client}, server: %{GREEDYDATA:server}, request: "(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion}))"(?:, upstream: "%{DATA:upstream}")?(?:, host: "%{DATA:host}")?(?:, referrer: "%{GREEDYDATA:referrer}")?
+PANTHEON_PHP_ERROR \[(?<time>%{MONTHDAY}-%{MONTH}-%{YEAR} %{TIME} UTC)\] PHP %{LOGLEVEL:loglevel}\:  %{GREEDYDATA:error}
+PANTHEON_PHP_FPM_ERROR \[(?<tim>%{MONTHDAY}-%{MONTH}-%{YEAR} %{TIME})\] %{LOGLEVEL:loglevel}\: %{GREEDYDATA:error}
