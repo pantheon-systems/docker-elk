@@ -1,4 +1,5 @@
 *.log
 *.log-*
 *.gz
-*.gs-*
+*.gz-*
+.envrc
